@@ -1,0 +1,3 @@
+Lazy initialization is a method of evaluating code only on use. This can make a computation more spread out, as is is not necesarry to compute everything in the beginning, and it can lead to being able to cancle the computation and not waste compational power.
+
+Some expensive.. will be printed twice because it was given as an argument. It has to be evaluated to get the reference to the boolean

@@ -1,0 +1,8 @@
+Inner classes should be used when you want to encapsulate data but only in the context of one class.
+It can increase code readability and encapsulation but it can also clutter up a class.
+
+1. List and cointer for the List object.
+2. Comparators
+3. Function objects
+
+The original declaration of the class is to just print the argument. Then the class is created but with a new implementation, to print out the parenthses

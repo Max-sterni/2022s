@@ -1,0 +1,2 @@
+The > redirects the input or < output from one command to a file or the other way
+The number specifies stderr and the & takes stdout and stderr to the files

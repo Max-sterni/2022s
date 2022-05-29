@@ -1,0 +1,3 @@
+The fork makes a new process with its own stack and memory. The memory is only copied, therefore changing it will not change the value in the main process. 
+
+The thread however is operating on the same memory as parent process and therefore when you increment the global value it will change. 

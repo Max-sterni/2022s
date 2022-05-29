@@ -1,0 +1,150 @@
+\documentclass[]{book}
+
+%These tell TeX which packages to use.
+\usepackage{array,epsfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsxtra}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{color}
+
+%Here I define some theorem styles and shortcut commands for symbols I use often
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem*{rmk}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem*{joke}{Joke}
+\newtheorem{ex}{Example}
+\newtheorem*{soln}{Solution}
+\newtheorem{prop}{Proposition}
+
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\surj}{\twoheadrightarrow}
+\newcommand{\graph}{\mathrm{graph}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\Z}{\bb{Z}}
+\newcommand{\Q}{\bb{Q}}
+\newcommand{\R}{\bb{R}}
+\newcommand{\C}{\bb{C}}
+\newcommand{\N}{\bb{N}}
+\newcommand{\M}{\mathbf{M}}
+\newcommand{\m}{\mathbf{m}}
+\newcommand{\MM}{\mathscr{M}}
+\newcommand{\HH}{\mathscr{H}}
+\newcommand{\Om}{\Omega}
+\newcommand{\Ho}{\in\HH(\Om)}
+\newcommand{\bd}{\partial}
+\newcommand{\del}{\partial}
+\newcommand{\bardel}{\overline\partial}
+\newcommand{\textdf}[1]{\textbf{\textsf{#1}}\index{#1}}
+\newcommand{\img}{\mathrm{img}}
+\newcommand{\ip}[2]{\left\langle{#1}
+{#2}\right\rangle}
+\newcommand{\inter}[1]{\mathrm{int}{#1}}
+\newcommand{\exter}[1]{\mathrm{ext}{#1}}
+\newcommand{\cl}[1]{\mathrm{cl}{#1}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\vol}{\mathrm{vol}}
+\newcommand{\cnt}{\mathrm{ct}}
+\newcommand{\osc}{\mathrm{osc}}
+\newcommand{\LL}{\mathbf{L}}
+\newcommand{\UU}{\mathbf{U}}
+\newcommand{\support}{\mathrm{support}}
+\newcommand{\AND}{\;\wedge\;}
+\newcommand{\OR}{\;\vee\;}
+\newcommand{\Oset}{\varnothing}
+\newcommand{\st}{\ni}
+\newcommand{\wh}{\widehat}
+
+%Pagination stuff.
+\setlength{\topmargin}{-.3 in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{9.in}
+\setlength{\textwidth}{6.5in}
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+\begin{center}
+{\Large Angewandte Mathematik für die Informatik \hspace{0.5cm} Sheet 4}
+\textbf{Maximilian von Sternberg} %You should put your name here
+\end{center}
+
+\vspace{0.2 cm}
+
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item $F(x) = \frac{3}{2}\sqrt[3]{x^2} + -\frac{1}{4}\cdot sin(7 - 4x) + c$
+        \item \begin{align*}
+            F(x)& = \int \frac{x^2 + 1}{x^3 + 3x} \,dx \\
+            & = \int \frac{x^2 + 1}{z \cdot z'} \,dz \\
+            & = \int \frac{x^2 + 1}{z \cdot 3(x^2 + 1)} \,dz \\
+            & = \int \frac{1}{z \cdot 3} \,dz \\
+            & = \frac{1}{3} \int \frac{1}{z} \,dz \\
+            & = \frac{1}{3} ln(|z|) + c \\
+            & = \frac{ln(|x^3 + 3x|)}{3} + c
+        \end{align*}
+        \item \begin{align*}
+            F(x)& = \int \frac{x - 1}{x^2 - 1} \,dx \\
+            & = \int \frac{x-1}{(x+1)(x-1)} \,dx \\
+            & = \int \frac{1}{x+1} \,dx \\
+            & = ln(|x + 1|) + c
+        \end{align*}
+        \item \begin{align*}
+            F(x)& = \int sin(x) \cdot x \,dx \\
+            & = -x \cdot cos(x) - \int -cos(x) \, dx \\
+            & = -x \cdot cos(x) + sin(x) + c
+        \end{align*}
+    \end{enumerate}
+    \item \begin{align*}
+        F(x)& = \int_0^8 \sqrt{1 + x^2} \,dx \\
+        & = \int_{asinh(0))}^{asinh(8)} \sqrt{1 + (sinh(u))^2} cosh(u) \, du \\
+        & = \int_{asinh(0))}^{asinh(8)} \sqrt{cosh^2(u)} cosh(u) \, du \\
+        & = \int_{asinh(0))}^{asinh(8)} cosh^2(u) \, du \\
+        & = [\frac{1}{2}cosh(u)sin(u) + \frac{1}{2}u]_{sinh(0)}^{sinh(8)} \\
+        & = \frac{8}{2}cosh(asinh(8)) + \frac{asinh(8)}{2} \\
+        & = 33,637267134
+    \end{align*}
+    \item \begin{align*}
+         x + 2 & = x^3 - 2x + 2 \qquad |-(x + 2) \\
+         0 & = x^3 - 3x \\
+         0 & = x(x^2 - 3)\\
+         & x_1 = 0\\
+         0 & = x^2 - 3\\
+        & x_{2/3} = \pm\sqrt{3}
+    \end{align*}
+    \begin{align*}
+        A & = |\int_{-\sqrt{3}}^0 x^3 - 2x +2 - (x + 2)\, dx| + |\int_0^{-\sqrt{3}} x^3 - 2x +2 + (x + 2)\, dx| \\ 
+        & = |\int_{-\sqrt{3}}^0 x^3 - 3x \, dx| + |\int_0^{-\sqrt{3}} x^3 - 3x\, dx| \\
+        & = |[\frac{1}{4}x^4 - \frac{3}{2}x^2]_{-\sqrt{3}}^0| + |[\frac{1}{4}x^4 - \frac{3}{2}x^2]_0^{-\sqrt{3}}| \\
+        & = \frac{9}{2}
+    \end{align*}
+    \item \begin{enumerate}
+        \item We have to find a c which corresponds to the appropriate value that the function stays continuos. As for my hand I have provided the functions in julia. x(300) = 20550 
+        \item In beschleunigung.jl
+        \item The steps are only an arbitrary sample in the function. Therefore if we use a lower step size the accuracy of our guess will become worse. 
+    \end{enumerate}
+    \item \begin{enumerate}
+        \item \begin{align*}
+            V & = \int_0^8 \int_{-4}^4 -\sqrt{\frac{5}{4}} \cdot x^2 + 2y + 80\,dy\,dx \\
+            & = \int_0^8 [\frac{-\sqrt{5} \cdot x^2y}{2} + y^2 + 80y]_{-4}^4\,dx \\
+            & = \int_0^8 640-4\sqrt{5}\cdot x^2 \, dx \\
+            & = [-\frac{4}{3}\sqrt{5} \cdot x^3 + 640x]_0^8 \\
+            & = 5120-\frac{2048\sqrt{5}}{3} 
+            \end{align*}
+        \item \begin{align*}
+            S & = \int_0^8 \int_{-4}^4 |(1, 0, \partial_xf)^T \times (0, 1, \partial_y)^T|\,dy\,dx
+        \end{align*}
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}

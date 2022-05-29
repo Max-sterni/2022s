@@ -1,0 +1,138 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+\title{Assignment 3}%replace X with the appropriate number
+\author{Maximilian von Sternberg\\ %replace with your name
+Angewandte Mathematik} %if necessary, replace with your course title
+ 
+\maketitle
+ 
+\begin{exercise}
+1 
+\begin{question}
+a
+%Note 1: The * tells LaTeX not to number the lines.  If you remove the *, be sure to remove it below, too.
+%Note 2: Inside the align environment, you do not want to use $-signs.  The reason for this is that this is already a math environment. This is why we have to include \text{} around any text inside the align environment.
+\begin{align*}
+f(x,y )& = -4x^2 + 2 * (2x - y)^3 - (x + y)^3 + x + 4y^2 - y - 4\\ 
+ & = 2 * (2x - y)^3 - (x + y)^3 + x  + 4y^2 - 4x^2 - y - 4 \\	
+ & = 2 * (8x^3 - y^3 -12x^2y + 6xy^2) - (x^3 + 3x^2y + 3xy^2 + y^3) + x  + 4y^2 - 4x^2 - y - 4 \\	
+ & = 16x^3 - 2y^3 - 24x^2y + 12xy^2 - x^3 - 3x^2y - 3xy^2 - y^3 + x  + 4y^2 - 4x^2 - y - 4 \\	
+ & = 15x^3 - 3y^3 - 27x^2y + 9xy^2 - 4x^2  + 4y^2 + x  - y - 4 
+\end{align*}
+
+\begin{align*}
+\frac{\partial f(x, y)}{\partial x}& = 45x^2 - 54yx + 9y^2 - 8x  + 1 
+\end{align*}
+
+\begin{align*}
+\frac{\partial f(x, y)}{\partial x}& = -9y^2 - 27x^2 + 18xy + 8y - 1
+\end{align*}
+
+\end{question}
+
+\begin{question}
+b
+
+\begin{align*}
+0 = \frac{\partial f(0, y)}{\partial y}& = -9y^2 + 8y - 1\\
+\text{Quadratic-Formula}: y& =  \frac{-8\pm\sqrt{8^2-4(-9)(-1)}}{2(-9)}\\
+& = \frac{-8\pm\sqrt{64-36}}{-18}\\
+y_1 = 0,738 \\
+y_2 = 0,15
+\end{align*}
+
+\begin{align*}
+0 = \frac{\partial f(x, -1/2)}{\partial x}& = 45x^2 + 35x + 3,25\\
+\text{Quadratic-Formula}: y& =  \frac{-35\pm\sqrt{35^2 - 4 * 43 * 3,25}}{2*45}\\
+& = \frac{-35\pm\sqrt{1225-559}}{90}\\
+x_1 = -0,108 \\
+x_2 = -0,67
+\end{align*}
+
+\end{question}
+\begin{question}
+c
+\begin{align*}
+\triangledown f (-\frac{1}{2}, -\frac{1}{2}) & = (5, -9,5) \\
+\triangledown f (\frac{1}{2}, \frac{1}{2}) & = (-3, -1,5) \\
+\triangledown f (-\frac{1}{2}, \frac{1}{2}) & = (32 , -10,5) \\
+\triangledown f (\frac{1}{2}, -\frac{1}{2}) & = (24, -18,5) \\
+\triangledown f (-\frac{1}{2}, -\frac{1}{2}) & = (3,25, -7,25)
+\end{align*}
+\end{question}
+\end{exercise}
+ 
+\begin{exercise}
+2
+The distance is $x(t) = v_x * t$. Now we need to maximize the time for which $y(t) > 0$ and where $v_x$ is sufficiently big.  We can combine these two properties by making $v_x$ and $v_y$ dependent on $\theta$.
+\begin{align}
+\begin{pmatrix}
+ v * cos \theta\\
+v * sin \theta
+\end{pmatrix}
+\end{align}
+the best $t$ is now the non trivial solution for $0 = tv * sin \theta - \frac{gt^2}{2}$
+
+\begin{align*}
+0 & = tv_y * sin \theta - \frac{gt^2}{2} \quad |+\frac{gt^2}{2}\\
+& \Leftrightarrow \frac{gt^2}{2} = tv_y * sin \theta \quad |* \frac{1}{vsin \theta} \\
+& \Leftrightarrow \frac{gt^2}{2v * sin \theta} = t 
+\end{align*}
+
+Now that we have the zero dependant on $t$ we can combine the three functions to the length function 
+$$f(\theta) = v*cos \theta * \frac{gt^2}{2v * sin \theta}$$ \\
+
+To get the min of this function we just have to finde $0 = f'(\theta)$
+
+\end{exercise}
+
+\begin{exercise}
+3
+\begin{question}
+b
+Because f'(x) = 0 you would divide by zero which is impossible
+\end{question}
+
+\begin{question}
+c
+If you use f' for the function the roots will be the local minima of f
+\end{question}
+
+
+\end{exercise}
+
+% --------------------------------------------------------------
+%     You don't have to mess with anything below this line.
+% --------------------------------------------------------------
+ 
+\end{document}

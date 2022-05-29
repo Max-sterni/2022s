@@ -1,0 +1,5 @@
+export name=value sets the variable
+
+unset name unsets the variable
+
+int putenv(String)

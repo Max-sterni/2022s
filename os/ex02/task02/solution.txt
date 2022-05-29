@@ -1,0 +1,8 @@
+SiGTERM can be changed but SIGKILL is unchangeable#
+
+It only prints the number 2
+
+; executes every command
+&& executes if the first command terminates with true
+|| executes if the first command terminates with false
+

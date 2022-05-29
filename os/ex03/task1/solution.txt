@@ -1,0 +1,2 @@
+If you seed the random generator with the pid before fork it will all be the same random numbers, as the
+the constant id of the parent is used

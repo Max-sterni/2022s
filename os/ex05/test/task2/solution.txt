@@ -1,0 +1,15 @@
+After forking, the child process inherits a copy of the memory in the parent process. Therefore when changing the global variable, the change is only visible for the process that changed it. On the other hand, a shared memory segment is the stores the same data for both processes. Therefore a change in one process results in a change in the other.
+
+A race condition occurs, when to processing instances like processes or threats work on a task, of which the outcome is dependent on which process finishes first. 
+
+A race condition can occur when two processes try to access shared data without synchronization.
+
+The output can be correct, if the processes perform there tasks in the right order by chance.
+
+No it does not. Race conditions can also occur in a small number of cases.
+
+Synchronization is the act of forcing processes to wait on each other so that a correct Result can always be achieved.
+
+The unnamed semaphores should be used in a child parent relationship because. The named semaphores can be accessed by completely unrelated processes.
+
+If you could access the value that is stored in the semaphore, you could negate one of the semaphores, because the two values are proportional to each other. 

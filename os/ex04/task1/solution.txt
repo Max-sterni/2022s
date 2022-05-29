@@ -1,0 +1,20 @@
+rwx stand for read write and execute
+for a file this means to read write or execute it 
+for a directory this means to list its contents add files to it or use it in a different way/enter it
+
+The owning user is usually the person who created the file 
+The group is a group of users
+
+User: read write Group: read write Other: read
+
+User: read write Group: write Other: write
+
+With the chmod command
+
+sudo chmod permission *
+
+The umask is the standart permission mask for creating new files the standart
+is 002 wich only takes away write for all
+it is not possible to automaticly enable execute
+
+To only enable the pipe for yourself you should block it for the group and all

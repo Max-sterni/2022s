@@ -1,0 +1,82 @@
+a)
+Expression: 5 * 7 / 3
+Result: 11
+Type: Integer
+Reason: The division of Integer results is a floor division
+
+
+b)
+Expression: 1 << 8 % 3
+Result: 4
+Type: Integer
+Reason: A bit manipulation doesn't change the type
+
+
+c)
+Expression: (short) Integer.MAX_VALUE
+Result: -1
+Type: short
+Reason: because of the cast the bit values in Integer.MAX_VALUE have been changed into a value for short
+
+
+d)
+Expression: 23 / (double) 11
+Result: 2.090909090909091
+Type: double
+Reason: When you divide an Integer by a double the result will be double
+
+
+e)
+Expression: (double) (23/11)
+Result: 2.0
+Type: double
+Reason: the division has been made with the type integer and was later casted to double
+
+
+f)
+Expression: 42f
+Result: 42.0
+Type: float
+Reason: f specifies a number as a float literal
+
+
+g)
+Expression: 4e3D
+Result: 4000.0
+Type: double
+Reason: e ist the exponent to 10 and D is the double literal
+
+
+h)
+Expression: 0.1f == 0.1
+Result: false
+Type: boolean
+Reason: standard literal is double and a double doesn't equal a float
+
+
+i)
+Expression: "Peter=Coffee+" + 'chocolate' + 2.0
+Result: Exception
+Type: Exception
+Reason: ' singlequotes cannot be used as String literals only "
+
+
+j)
+Expression: "Peter=Coffee+" + "chocolate" + 2.0
+Result: Peter=Coffee+chocolate2.0
+Type: String
+Reason: adding with a string concatenates it
+
+
+k)
+Expression: 1 == 24 % 3 && 4 > 7 || true
+Result: true
+Type: boolean
+Reason: || binds the least
+
+
+l)
+Expression: 1 == 24 % 3 ? 4 : 7
+Result: 7
+Type: integer
+Reason: ? : is the if else operator and has been used with false

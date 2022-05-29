@@ -1,0 +1,268 @@
+\documentclass[]{book}
+
+%These tell TeX which packages to use.
+\usepackage{array,epsfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsxtra}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{color}
+
+%Here I define some theorem styles and shortcut commands for symbols I use often
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem*{rmk}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem*{joke}{Joke}
+\newtheorem{ex}{Example}
+\newtheorem*{soln}{Solution}
+\newtheorem{prop}{Proposition}
+
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\surj}{\twoheadrightarrow}
+\newcommand{\graph}{\mathrm{graph}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\Z}{\bb{Z}}
+\newcommand{\Q}{\bb{Q}}
+\newcommand{\R}{\bb{R}}
+\newcommand{\C}{\bb{C}}
+\newcommand{\N}{\bb{N}}
+\newcommand{\M}{\mathbf{M}}
+\newcommand{\m}{\mathbf{m}}
+\newcommand{\MM}{\mathscr{M}}
+\newcommand{\HH}{\mathscr{H}}
+\newcommand{\Om}{\Omega}
+\newcommand{\Ho}{\in\HH(\Om)}
+\newcommand{\bd}{\partial}
+\newcommand{\del}{\partial}
+\newcommand{\bardel}{\overline\partial}
+\newcommand{\textdf}[1]{\textbf{\textsf{#1}}\index{#1}}
+\newcommand{\img}{\mathrm{img}}
+\newcommand{\ip}[2]{\left\langle{#1}
+{#2}\right\rangle}
+\newcommand{\inter}[1]{\mathrm{int}{#1}}
+\newcommand{\exter}[1]{\mathrm{ext}{#1}}
+\newcommand{\cl}[1]{\mathrm{cl}{#1}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\vol}{\mathrm{vol}}
+\newcommand{\cnt}{\mathrm{ct}}
+\newcommand{\osc}{\mathrm{osc}}
+\newcommand{\LL}{\mathbf{L}}
+\newcommand{\UU}{\mathbf{U}}
+\newcommand{\support}{\mathrm{support}}
+\newcommand{\AND}{\;\wedge\;}
+\newcommand{\OR}{\;\vee\;}
+\newcommand{\Oset}{\varnothing}
+\newcommand{\st}{\ni}
+\newcommand{\wh}{\widehat}
+
+%Pagination stuff.
+\setlength{\topmargin}{-.3 in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{9.in}
+\setlength{\textwidth}{6.5in}
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+\begin{center}
+{\Large  Angewandte Mathematik in der Informatik \hspace{0.5cm} Sheet 6}
+\textbf{Maximilian von Sternberg} %You should put your name here
+\end{center}
+
+\vspace{0.2 cm}
+
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item \begin{align*}
+            \int_0^\pi \sqrt{r^2 + (\frac{dr}{d\theta})^2} \, d\theta &= \int_0^\pi \sqrt{(1 - \cos \theta)^2 + (\sin \theta)^2} \, d\theta \\
+            & = \int_0^\pi \sqrt{1 - 2\cos\theta + \cos^2\theta + \sin^2 \theta} \, d\theta \\
+            & = \int_0^\pi \sqrt{- 2\cos\theta + 2} \, d\theta \\
+            & = \int_0^\pi \sqrt{- 2(2\cos^2 \frac{\theta}{2} - 1) + 2} \, d\theta \\
+            & = \int_0^\pi \sqrt{- 4\cos^2 \frac{\theta}{2} + 4} \, d\theta \\
+            & = \int_0^\pi \sqrt{4(1 + - \cos^2 \frac{\theta}{2})} \, d\theta \\
+            & = \int_0^\pi \sqrt{4\sin^2 \frac{\theta}{2}} \, d\theta \\
+            & = \int_0^\pi 2\sin \frac{\theta}{2} \, d\theta \\
+            & = [-4\cos \frac{\theta}{2}]_0^\pi \\
+            & = -4 \cos \frac{\pi}{2} + 4\cos 0 \\
+            & = 4        
+        \end{align*}
+            \item \begin{align*}
+                \int_0^{2\pi} \sqrt{ \sum_{i=1}^{n} (\gamma^\prime_i(\theta))^2 } & = \int_0^{2\pi} \sqrt{(2\cos \theta + 2)^2 + (-2\sin\theta)^2} \, d\theta \\
+                & = \int_0^{2\pi} \sqrt{4\cos^2 \theta + 8\cos \theta + 4 + 4 \sin^2\theta} \, d\theta \\
+                & = \int_0^{2\pi} \sqrt{8\cos \theta + 8} \, d\theta \\
+                & = \int_0^{2\pi} \sqrt{8(\cos \theta + 1)} \, d\theta \\
+                & = \int_0^{2\pi} \sqrt{8 \cdot 2\cos^2 \frac{\theta}{2}} \, d\theta \\
+                & = 4 \cdot \int_0^{2\pi} | \cos \frac{\theta}{2}| \, d\theta \\
+                & = 4 \cdot \int_0^{\pi} |\cos u| \, \frac{du}{du^\prime} \\
+                & = 8 \cdot \int_0^{\pi} |\cos u| \, du \\
+                & = 8 \cdot \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \cos u \, du \\
+                & = 8 \cdot [\sin u]_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \\
+                & = 16
+            \end{align*}
+            \item \begin{align*}
+                \int_0^{8} \sqrt{ \sum_{i=1}^{n} (\gamma^\prime_i(\theta))^2 } & = \int_0^{8} \sqrt{\frac{9}{4}t + 9 - \frac{9}{4} t} \\
+                & = \int_0^{8} \sqrt{9} \\
+                & = \int_0^{8} 3 \\
+                & = [3t]_0^8 \\
+                & = 24
+            \end{align*}
+        \end{enumerate}
+            \item 
+            \begin{enumerate}
+                \item\begin{align*}
+                \begin{pmatrix}
+                    a & b
+                \end{pmatrix}
+                \cdot
+                \begin{pmatrix}
+                    \frac{1}{2} & -\frac{\sqrt{3}}{2} \\
+                    \frac{\sqrt{3}}{2} & \frac{1}{2}
+                \end{pmatrix}
+                \cdot
+                \begin{pmatrix}
+                    a \\
+                    b
+                \end{pmatrix} & = 
+                \begin{pmatrix}
+                    a \cdot \frac{1}{2} + b \cdot \frac{\sqrt{3}}{2} & 
+                    -a \cdot \frac{\sqrt{3}}{2} + b \cdot \frac{1}{2}
+                \end{pmatrix}
+                \cdot
+                \begin{pmatrix}
+                    a \\
+                    b
+                \end{pmatrix}\\
+                & = 
+                a^2 \cdot \frac{1}{2} -ab \cdot \frac{\sqrt{3}}{2} + 
+                b^2 \cdot \frac{1}{2} + ab \cdot \frac{\sqrt{3}}{2} \\
+                & = 
+                a^2 \cdot \frac{1}{2} + 
+                b^2 \cdot \frac{1}{2} \\
+                & \Rightarrow \text{The Matrix is positivly definite}
+            \end{align*}
+        \item \begin{align*}
+            0 & = det (
+                \begin{pmatrix}
+                    t - 2 & x \\
+                    0 & t - 2
+                \end{pmatrix}
+            ) \\
+            & = (t - 2)^2 \quad | \sqrt{}\\
+            & \Leftrightarrow 0 = t - 2 \quad | + 2 \\
+            & \Leftrightarrow 2 = t \\
+            & \Rightarrow \text{The Matrix is positivly definite for every value of x}
+        \end{align*}
+        \item \begin{align*}
+            0 & = det (
+                \begin{pmatrix}
+                    t - 0,5 & 0 \\
+                    0 & t - x
+                \end{pmatrix}
+            ) \\
+            & = (t - 0,5) \cdot (t - x) \\
+            \Rightarrow t_1 & = 0,5 \\
+            t_2 & = x \\
+            & \Rightarrow \text{For } x \in \R^+/\{0\} \text{ the matrix is positivly define,}\\ &\text{for } x = {0} \text{ it is positivly semi definite and for } x \in \R^-/\{0\} \text{ it is undefinite}
+         \end{align*}
+        \end{enumerate}
+    \item 
+    \begin{enumerate}
+        \item 
+    Explicit\\
+    Implicit: $0 = \begin{pmatrix}
+        4 \\ 
+        10 \\
+        -2
+    \end{pmatrix}^T
+    \cdot
+    \begin{pmatrix}
+        x \\
+        y \\ 
+        z 
+    \end{pmatrix}
+    - 15
+    $ \\
+    Parametric: $\begin{pmatrix}
+        0 \\
+        0 \\
+        -7,5
+    \end{pmatrix} +
+    \begin{pmatrix}
+        1 \\
+        0 \\
+        2 \\
+    \end{pmatrix} \cdot t +
+    \begin{pmatrix}
+        0\\
+        1\\
+        5
+    \end{pmatrix} \cdot r
+    $
+    \item Implicit \\
+    Explicit: $z = -(x + y) - \sqrt{75}$ \\
+    Parametric: $\begin{pmatrix}
+        0 \\
+        0 \\
+        -\sqrt{75} 
+    \end{pmatrix} +
+    \begin{pmatrix}
+        1 \\
+        0 \\
+        -1 \\
+    \end{pmatrix} \cdot t +
+    \begin{pmatrix} 
+        0\\
+        1\\
+        -1
+    \end{pmatrix} \cdot r
+    $ 
+    \item Implicit \\
+    Explicit: $z = \sqrt{25 - (x - 6)^2 - (y - 3)^2}$\\
+    Parametric: $
+    \begin{pmatrix} 
+        x\\
+        y\\
+        z
+    \end{pmatrix} =
+    \begin{pmatrix}
+        (25 \sin \phi \cos \theta) + 6 \\
+        (25 \sin \phi \sin \theta) + 3\\
+        (25 \cos \phi)
+    \end{pmatrix}
+    for 0 \leq \phi, \theta \leq 2 \pi
+    $
+\end{enumerate}
+\item \begin{enumerate}
+    \item $
+        \begin{pmatrix}
+            2x_1 & 0 \\
+            0 & 2x_2
+        \end{pmatrix}
+    $
+    \item $
+        \begin{pmatrix}
+            3x_1^2x_2^2 - x_2^3 & x_1^32x_2 - x_13x_2^2 \\
+            2x_1 - x_2^3 & - x_13x_2^2
+        \end{pmatrix}
+    $
+    \item$
+    \begin{pmatrix}
+        4x_1 & -x_3\sin(x_2x_3) & -x_2\sin(x_2x_3)\\
+        8x_1 & 1260x_3^2 &  4\\
+        -x_2e^{-x_1x_2}& -x_1e^{-x_1x_2} & 20
+    \end{pmatrix}
+$
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

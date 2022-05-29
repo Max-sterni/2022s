@@ -1,0 +1,3 @@
+(I) This feature is called method overloading. It is used to create versatile methods which can be used on different data structures.
+(II) This is not possible because the return type always has to stay constant or the method would have to be used differently with different arguments and would therefore not fulfill its purpose of being the same method.
+(III) In java only the value of the passed in argument is given to the method. This results in no changes to the original data after the execution of the method. This is different then in C where the data can be changed by utilizing a pointer

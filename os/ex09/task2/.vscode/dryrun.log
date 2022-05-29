@@ -1,0 +1,5 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/maxsterni/Documents/Studium/2022s/os/ex09/task2'
+gcc -Wall -Wpedantic -Wextra -std=c11 -g -o server server.c -pthread
+make: Leaving directory '/home/maxsterni/Documents/Studium/2022s/os/ex09/task2'
+ 

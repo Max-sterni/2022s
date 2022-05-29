@@ -1,0 +1,5 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/maxsterni/Documents/Studium/2022s/os/ex08/task2'
+make: 'task2' is up to date.
+make: Leaving directory '/home/maxsterni/Documents/Studium/2022s/os/ex08/task2'
+ 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ac/ac.iml" filepath="$PROJECT_DIR$/ac/ac.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/at.iml" filepath="$PROJECT_DIR$/.idea/at.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ac/uibk/g01/csaz8744/csaz8744.iml" filepath="$PROJECT_DIR$/ac/uibk/g01/csaz8744/csaz8744.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ac/uibk/g01/csaz8744/s02/e01/e01.iml" filepath="$PROJECT_DIR$/ac/uibk/g01/csaz8744/s02/e01/e01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ac/uibk/g01/csaz8744/s02/e02/e02.iml" filepath="$PROJECT_DIR$/ac/uibk/g01/csaz8744/s02/e02/e02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ac/uibk/g01/csaz8744/s02/test/test.iml" filepath="$PROJECT_DIR$/ac/uibk/g01/csaz8744/s02/test/test.iml" />
+    </modules>
+  </component>
+</project>

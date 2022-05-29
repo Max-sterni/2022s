@@ -1,0 +1,7 @@
+The Thermometer has way to many specific functions
+therefore there is almost no encapsulation. 
+
+The Thermometer class is also to powerful und messy therefore should not include every
+kind of getter and setter and espacially should not keep all of them Public. Would they 
+be kept inside the respectife child classes, the code would be much cleaner and easier and
+more intuitive to use.

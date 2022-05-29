@@ -4,6 +4,6 @@ import java.util.Set;
 
 public interface VoteGenerator {
 
-    public void distributeVotes(Set<PoliticalParty> parties, Set<ElectoralRegion> regions);
-
+    void distributeVotes(Set<PoliticalParty> parties, Set<ElectoralRegion> regions);
 }
+

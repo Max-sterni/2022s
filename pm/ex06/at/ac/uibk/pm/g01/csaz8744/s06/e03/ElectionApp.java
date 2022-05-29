@@ -6,17 +6,17 @@ import java.util.Set;
 public class ElectionApp {
     public static void main(String[] args) {
         Set<ElectoralRegion> electionRegions = new HashSet<>();
-        electionRegions.add(new ElectoralRegion("Unglang", 50));
-        electionRegions.add(new ElectoralRegion("Greencity", 120));
-        electionRegions.add(new ElectoralRegion("Hammerbruenicken", 180));
-        
+        electionRegions.add(new ElectoralRegion("FirstRegion", 10));
+        electionRegions.add(new ElectoralRegion("SecondRegion", 100));
+        electionRegions.add(new ElectoralRegion("ThirdRegion", 1000));
+
         Set<PoliticalParty> politicalParties = new HashSet<>();
-        politicalParties.add(new PoliticalParty("The cool guys"));
-        politicalParties.add(new PoliticalParty("The smart guys"));
-        politicalParties.add(new PoliticalParty("The hard guys"));
+        politicalParties.add(new PoliticalParty("TestParty"));
+        politicalParties.add(new PoliticalParty("SecondTestParty"));
+
 
         ElectionSystem electionSystem = new ElectionSystem(electionRegions, politicalParties);
-        electionSystem.vote(new RandomizedVoteGenorator());
-        
+        electionSystem.vote(new FixedVoteGenerator());
+        electionSystem.assignSeats();
     }
 }

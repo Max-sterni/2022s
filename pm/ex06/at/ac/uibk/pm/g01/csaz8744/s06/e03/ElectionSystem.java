@@ -1,7 +1,7 @@
 package at.ac.uibk.pm.g01.csaz8744.s06.e03;
 
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -26,34 +26,44 @@ public void vote(VoteGenerator generator) {
 }
 
 public void assignSeats(){
-    
+    for (ElectoralRegion electoralRegion : electionRegions) {
+        dHondtMethod(electoralRegion);
+    }
+
+    for (PoliticalParty politicalParty : politicalParties) {
+        System.out.println(politicalParty.showSeats());
+    }
 }
 
 private void dHondtMethod(ElectoralRegion electoralRegion){
-    List<> quotients = new ArrayList<>();
+    List<QuotientPartyPair> quotients = new ArrayList<>();
 
     for (PoliticalParty party : politicalParties) {
-        
-        quotients.add();
+        quotients.add(new QuotientPartyPair(party, electoralRegion));
     }
 
+
     for (int i = 0; i < electoralRegion.getMaximumSeats(); i++) {
-        
+        Collections.sort(quotients);
+
+        quotients.get(0).getParty().addSeat(electoralRegion);
+        quotients.get(0).next();
     }
 }
 
-private class QuotientPartyPair implements Iterator<QuotientPartyPair>{
+private class QuotientPartyPair implements Iterator<Integer>, Comparable<QuotientPartyPair>{
 
     private Integer quotiant;
     private final PoliticalParty party;
     private final ElectoralRegion region;
 
     @Override
-    public QuotientPartyPair next() {
+    public Integer next() {
         if(!hasNext()){
             throw new NoSuchElementException();
         }
-        quotiant = 
+        quotiant = party.getVotesFromRegion(region) / (party.getSeatsFromRegion(region) + 1); 
+        return quotiant;
     }
 
     public Integer getQuotiant() {
@@ -65,12 +75,26 @@ private class QuotientPartyPair implements Iterator<QuotientPartyPair>{
         return true;
     }
 
-    public final QuotientPartyPair(PoliticalParty party, ElectoralRegion region){
+    public QuotientPartyPair(PoliticalParty party, ElectoralRegion region){
         this.party = party;
         this.region = region;
         quotiant = party.getVotesFromRegion(region);
     }
     
+    @Override
+    public int compareTo(QuotientPartyPair otherParty) {
+        return -this.quotiant.compareTo(otherParty.getQuotiant());
+    }
+
+    public PoliticalParty getParty() {
+        return party;
+    }
+
+    @Override
+    public String toString() {
+        return party.getName() + " " + quotiant;
+    }
+
 }
 
 public Set<ElectoralRegion> getElectionRegions() {

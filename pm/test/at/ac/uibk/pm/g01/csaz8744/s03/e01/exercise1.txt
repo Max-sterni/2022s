@@ -1,6 +1,0 @@
-Public: A variable or method with the Public keyword can be accessed (read/write)
-from any refernce to an instance of the object with object.name
-Privat: A private variable or method can only be accessed from inside the object. However it can be
-returned or set through getter and setter methods. This makes working with these variables safer for other programmers
-
-This returns a reference to the current object

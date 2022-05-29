@@ -1,3 +1,0 @@
-In this case the java compiler uses auto boxing to change the literal value into the reference type.
-
-Now the opposite happens. The Integer is transformed into an int. This is called auto unboxing.

@@ -1,4 +1,0 @@
-The Standerd String representation of an object is the classpath combined with the hashcode of the instance.
-
-The equals method only compares the addresses of the objects givin. Objects are only equal if they are a reference to the same object.
-

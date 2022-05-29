@@ -1,4 +1,0 @@
-The first number is 4 because the type of o1 is Top and its an instance of Middle
-2 o2 is type middle and middle is only defined in Top
-4 because top is not defined in bottom
-6 because middle is redefined in bottom

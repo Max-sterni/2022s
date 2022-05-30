@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed May 25 11:06:00 2022
+# Make data base, printed on Mon May 30 14:13:08 2022
 
 # Variables
 
@@ -30,6 +30,8 @@ XDG_SESSION_TYPE = x11
 VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
+# environment
+IM_CONFIG_PHASE = 1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -43,11 +45,11 @@ CURDIR := /home/maxsterni/Documents/Studium/2022s/os/ex09
 # makefile
 SHELL = /bin/sh
 # environment
-VTE_VERSION = 6003
-# environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:57090
+JOURNAL_STREAM = 8:53541
+# environment
+KONSOLE_VERSION = 191203
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile
@@ -55,7 +57,7 @@ MAKEFILE_LIST :=
 # automatic
 @F = $(notdir $@)
 # environment
-IM_CONFIG_PHASE = 1
+GIO_LAUNCHED_DESKTOP_FILE = /home/maxsterni/.config/autostart/yakuake.desktop
 # environment
 USERNAME = maxsterni
 # environment
@@ -69,7 +71,7 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 _ = /usr/bin/code
 # environment
-MANAGERPID = 1936
+MANAGERPID = 1703
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -83,9 +85,11 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/maxsterni:@/tmp/.ICE-unix/2177,unix/maxsterni:/tmp/.ICE-unix/2177
+SESSION_MANAGER = local/maxsterni:@/tmp/.ICE-unix/1957,unix/maxsterni:/tmp/.ICE-unix/1957
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
+# environment
+WINDOWID = 0
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
@@ -93,7 +97,9 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 9ab9d010a73f4b778d40f4d2a472b824
+INVOCATION_ID = 4b653e60fb5848e28ec462881e6cb26a
+# environment
+PROFILEHOME = 
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -102,6 +108,8 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 2209
 # automatic
 %F = $(notdir $%)
 # environment
@@ -113,7 +121,7 @@ PWD = /home/maxsterni/Semester/os/ex09
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 2133
+SSH_AGENT_PID = 1918
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -146,6 +154,8 @@ GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 LC_TIME = de_AT.UTF-8
 # environment
 COLORTERM = truecolor
+# environment
+KONSOLE_DBUS_SESSION = /Sessions/1
 # default
 MAKE = $(MAKE_COMMAND)
 # default
@@ -157,7 +167,7 @@ SHLVL = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-6d596c69-2b15-4b84-83f3-b3b0e225afae.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-a584601b-6990-44d5-ae4f-c8da091c4a24.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -177,11 +187,13 @@ LC_TELEPHONE = de_AT.UTF-8
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /home/maxsterni/Semester/os
+OLDPWD = /home/maxsterni/Semester
 # default
 .VARIABLES := 
 # automatic
 *F = $(notdir $*)
+# environment
+LANGUAGE = 
 # environment
 VSCODE_IPC_HOOK = /run/user/1000/vscode-9c992e8a-1.67.2-main.sock
 # makefile
@@ -190,6 +202,8 @@ MAKEFLAGS = pqrR
 MFLAGS = -pqrR
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
+# environment
+SHELL_SESSION_ID = 0223f006a3304f0c81eaf54bc27e9778
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
@@ -198,6 +212,10 @@ GDK_BACKEND = x11
 LC_PAPER = de_AT.UTF-8
 # environment
 QT_ACCESSIBILITY = 1
+# environment
+DESKTOP_AUTOSTART_ID = 10b5db9d98f494502c165389865897561500000019570017
+# environment
+COLORFGBG = 15;0
 # default
 MAKEFILES := 
 # environment
@@ -208,18 +226,16 @@ LC_NUMERIC = de_AT.UTF-8
 LC_MEASUREMENT = de_AT.UTF-8
 # environment
 LC_ALL = C
-# environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/8e7c8dd3_bf11_432e_b9ad_afea679c6843
 # automatic
 ^F = $(notdir $^)
-# environment
-GNOME_TERMINAL_SERVICE = :1.131
 # default
 SUFFIXES := 
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
 WINDOWPATH = 2
+# environment
+KONSOLE_DBUS_SERVICE = :1.82
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
@@ -233,9 +249,9 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 12109
+VSCODE_PID = 15977
 # variable set hash-table stats:
-# Load=111/1024=11%, Rehash=0, Collisions=18/133=14%
+# Load=119/1024=12%, Rehash=0, Collisions=20/141=14%
 
 # Pattern-specific Variable Values
 
@@ -243,7 +259,7 @@ VSCODE_PID = 12109
 
 # Directories
 
-# . (device 66308, inode 4852328): 7 files, no impossibilities.
+# . (device 66308, inode 5115247): 7 files, no impossibilities.
 
 # 7 files, no impossibilities in 1 directories.
 
@@ -302,6 +318,6 @@ GNUmakefile:
 # hash-table stats:
  
 # Load=15/8192=0%, Rehash=0, Collisions=1/18=6%
-# Finished Make data base on Wed May 25 11:06:00 2022
+# Finished Make data base on Mon May 30 14:13:08 2022
 
  

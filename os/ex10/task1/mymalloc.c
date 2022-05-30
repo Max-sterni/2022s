@@ -2,8 +2,11 @@
 #include <stdio.h>
 #include <sys/mman.h>
 #include <string.h>
+#include <pthread.h>
 
 #include "mymalloc.h"
+
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
 struct mheader_t
 {
@@ -12,7 +15,6 @@ struct mheader_t
 
 struct mheader_t *head;
 void *memory = NULL;
-int tests = 0;
 size_t total_size;
 
 void *my_malloc(size_t size)
@@ -32,19 +34,22 @@ void *my_malloc(size_t size)
 		return NULL;
 	}
 
+	pthread_mutex_lock(&mutex);
+	// Prepare output
 	void *output = (void *)head + sizeof(struct mheader_t);
 	struct mheader_t *tmp = head->next_block;
 	memset(head, 0, sizeof(struct mheader_t));
 	head = tmp;
+	pthread_mutex_lock(&mutex);
 
 	return output;
 }
 
 void my_free(void *ptr)
 {
+	pthread_mutex_lock(&mutex);
 	// Convenience
 	struct mheader_t *freed_header = (struct mheader_t *)(ptr - sizeof(struct mheader_t));
-	printf("\nFreeing header at %p\n\n", freed_header);
 	if (memory == NULL)
 	{
 		fprintf(stderr, "Memory allocator not yet initialized\n");
@@ -56,6 +61,7 @@ void my_free(void *ptr)
 	{
 		(freed_header)->next_block = head;
 		head = ptr - sizeof(struct mheader_t);
+		pthread_mutex_unlock(&mutex);
 		return;
 	}
 	else
@@ -70,6 +76,7 @@ void my_free(void *ptr)
 			{
 				freed_header->next_block = current->next_block;
 				current->next_block = freed_header;
+				pthread_mutex_unlock(&mutex);
 				return;
 			}
 			current = current->next_block;
@@ -78,11 +85,13 @@ void my_free(void *ptr)
 		// When the pointer is at the end of the list
 		current->next_block = ptr;
 		freed_header->next_block = NULL;
+		pthread_mutex_unlock(&mutex);
 	}
 }
 
 void my_allocator_init(size_t size)
 {
+	pthread_mutex_lock(&mutex);
 	if (memory != NULL)
 	{
 		fprintf(stderr, "Memory allocator already initialized\n");
@@ -117,6 +126,7 @@ void my_allocator_init(size_t size)
 		memcpy(memory + i * absolute_block_size, &header, sizeof(struct mheader_t));
 	}
 	head = memory;
+	pthread_mutex_unlock(&mutex);
 }
 
 void my_allocator_destroy()

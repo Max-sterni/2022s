@@ -83,7 +83,7 @@
 
 \begin{enumerate}
     \item Underfitting is, when you dont represent a dataset adequatly. It is only a loose representation of the data and the error is really big. For us you can see this in the linear fit. \\ Overfitting can be when the function is to specific to the dataset this would make it impossible to make future prediction. 
-    \item 2
+    \item Julia
     \item \begin{enumerate}
         \item \begin{align*}
             \begin{pmatrix}
@@ -108,7 +108,11 @@
             \Rightarrow \frac{5}{4}x^3 + \frac{25}{4}x^2 +\frac{15}{4}x +\frac{-5}{4}
         \end{align*}
         \item \begin{align*}
-            l_0 = \frac{(x - 2.75)(x -4)}{(-0.75)(-2)} = \frac{11 - 6.75 x + x^2}{1.5}            l_0 = \frac{(x - 2.75)(x -4)}{(-0.75)(-2)} = \frac{11 - 6.75 x + x^2}{1.5}
+            l_0 = & \frac{(x - 2.75)(x -4)}{(-0.75) \cdot (- 2)} = \frac{11 - 6.75 x + x^2}{1.5}  \\
+            l_1 = & \frac{(x - 2)(x -4)}{0.75 \cdot (- 1.25)} = -16 \cdot \frac{8 - 6 x + x^2}{15} \\
+            l_2 = & \frac{(x - 2)(x - 2.75)}{2 \cdot 1.25} = 16 \cdot \frac{5.5 - 4.75 x + x^2}{2.5} \\
+            p(x) \approx & -0.085x^2 + 0.682x - 0.385 \\
+            error(x) = & \frac{f^{\prime\prime\prime}(\xi)}{3!}(x - 2)(x - 2.75)(x - 4)
         \end{align*}
         \item \begin{align*}
             & \text{Interpolation in x: } g(x, y) = f(0, y) + (1 - x) \cdot f(1, y) \\

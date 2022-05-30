@@ -20,21 +20,19 @@ data_test = data[651:750,:];
 # function returns the coefficients of the linear least square fit
 # arguments: income (x), house prices (y)
 function linear_least_square_fit(x,y)
+    x = x'
+    y = y'
+    print(size(x))
+    print(size(x))
     #Construct matrix A of size 650x2
-    A = ones(length(x), 2)
-    A[:, 1] = x;
-    
+    A = ones(size(x)[1])
     #Construct matrix C for least square problem A'*A
     
-    C = A'*A
-
     #Construct right hand vector b for the least square problem A'*y
     
-
     #Solve least square problem. Use the backslash operator
     #to solve the system
     
-    return C \ A'*y;
 
 end
 
@@ -55,21 +53,12 @@ end
 function quadratic_least_square_fit(x,y)
     #Construct matrix A of size 650x3
 
-    A = ones(length(x), 3)
-    A[:, 1] = x .^2;
-    A[:, 2] = x;
-
-
-    C = A'*A
-
+    #Construct matrix C for least square problem A'*A
+    
     #Construct right hand vector b for the least square problem A'*y
     
-    b = A'*y
-
     #Solve least square problem. Use the backslash operator
     #to solve the system
-    
-    return C \ b;
 
 
 end
@@ -90,12 +79,7 @@ end
 # use det() from LinearAlgebra
 # hint: use built-in function collect()
 function cramersolve(A::Matrix, b::Vector)
-    x = zeros(length(b))
-    for i in 1:length(b)
-        A_i = A[:, i] = b
-        x[i] = det(A_i)/det(A)
-   end
-   return x
+    # return results of solving system via Cramer's rule
 end
 
 # cubic ordinary least squares: income vs house prices
@@ -104,21 +88,14 @@ end
 # arguments: income (x), house prices (y)
 function cubic_least_square_fit(x,y)
     #Construct matrix A of size 650x4
-    A = ones(length(x), 4)
-    A[:, 1] = x .^3;
-    A[:, 2] = x .^2;
-    A[:, 3] = x;
 
-    C = A'*A
-
+    #Construct matrix C for least square problem A'*A
+    
     #Construct right hand vector b for the least square problem A'*y
-    
-    b = A'*y
+   
+    #Solve least square problem. Use Cramer's rule
 
-    #Solve least square problem. Use the backslash operator
-    #to solve the system
-    
-    return C \ b;
+
 end
 
 # calculate & return approximation error for cubic OLS

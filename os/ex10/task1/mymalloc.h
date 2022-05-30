@@ -1,7 +1,7 @@
 #ifndef _MYALLOC_H_
 #define _MYALLOC_H_
 
-#define BLOCK_SIZE 16
+#define BLOCK_SIZE 8
 
 void * my_malloc(size_t size);
 

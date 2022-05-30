@@ -38,6 +38,9 @@ void *my_malloc(size_t size)
 
 void my_free(void *ptr)
 {
+	// Convenience 
+	struct mheader_t * freed_header = (struct mheader_t *)(ptr - sizeof(struct mheader_t));
+	printf("\nFreeing header at %p\n\n", freed_header);
 	if (memory == NULL)
 	{
 		fprintf(stderr, "Memory allocator not yet initialized\n");
@@ -45,9 +48,10 @@ void my_free(void *ptr)
 	}
 
 	// When the pointer is before the head
-	if (head == NULL || ptr < (void *)head)
+	if (head == NULL || freed_header < head)
 	{
-		((struct mheader_t *)(ptr - sizeof(struct mheader_t)))->next_block = head;
+		printf("Head is %p > freed %p\n", head, freed_header);
+		(freed_header)->next_block = head;
 		head = ptr - sizeof(struct mheader_t);
 		return;
 	}
@@ -59,17 +63,18 @@ void my_free(void *ptr)
 		while (current->next_block != NULL)
 		{
 			// Because the pointer is definitely bigger then current
-			if (ptr < (void *)current->next_block)
+			if (freed_header < current->next_block)
 			{
-				((struct mheader_t *)(ptr - sizeof(struct mheader_t)))->next_block = current->next_block;
-				current->next_block = (ptr - sizeof(struct mheader_t));
+				freed_header->next_block = current->next_block;
+				current->next_block = freed_header;
 				return;
 			}
+			current = current->next_block;
 		}
 
 		// When the pointer is at the end of the list
 		current->next_block = ptr;
-		((struct mheader_t *)(ptr - sizeof(struct mheader_t)))->next_block = NULL;
+		freed_header->next_block = NULL;
 	}
 }
 

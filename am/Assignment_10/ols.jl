@@ -22,18 +22,16 @@ data_test = data[651:750,:];
 function linear_least_square_fit(x,y)
     x = x'
     y = y'
-    print(size(x))
-    print(size(x))
     #Construct matrix A of size 650x2
-    A = ones(size(x)[1])
+    A = ones(650, 2)
+    A[:, 2] = x
     #Construct matrix C for least square problem A'*A
-    
+    C = A' * A
     #Construct right hand vector b for the least square problem A'*y
-    
+    b = A' * y
     #Solve least square problem. Use the backslash operator
     #to solve the system
-    
-
+    return C \ b
 end
 
 # calculate & return approximation error for linear OLS
@@ -42,7 +40,7 @@ end
 function linear_approximation_error(x,y,c_linear)
     error = 0;
     for (i,t) in enumerate(x)
-        # calculate the approximation error using c_linear
+            error += (c_linear[2] * t + c_linear[1] - y[i])^2
     end
     return error;
 end
@@ -51,16 +49,19 @@ end
 # function returns the coefficients of the quadratic least square fit
 # arguments: income (x), house prices (y)
 function quadratic_least_square_fit(x,y)
-    #Construct matrix A of size 650x3
-
+    x = x'
+    y = y'
+    #Construct matrix A of size 650x2
+    A = ones(650, 3)
+    A[:, 3] = x .^2
+    A[:, 2] = x
     #Construct matrix C for least square problem A'*A
-    
+    C = A' * A
     #Construct right hand vector b for the least square problem A'*y
-    
+    b = A' * y
     #Solve least square problem. Use the backslash operator
     #to solve the system
-
-
+    return C \ b
 end
 
 # calculate & return approximation error for quadratic OLS
@@ -69,7 +70,7 @@ end
 function quadratic_approximation_error(x,y,c_quadratic)
     error = 0;
     for (i,t) in enumerate(x)
-        # calculate the approximation error using c_quadratic
+        error += (c_quadratic[3] * t^2 + c_quadratic[2] * t + c_quadratic[1] - y[i])^2
     end
     return error;
 end
@@ -78,8 +79,16 @@ end
 # arguments: matrix (A), vector (b)
 # use det() from LinearAlgebra
 # hint: use built-in function collect()
-function cramersolve(A::Matrix, b::Vector)
+function cramersolve(A::Matrix, b::Matrix)
     # return results of solving system via Cramer's rule
+    x = zeros(length(eachcol(A)))
+
+    for i in 1:length(eachcol(A))
+        B = copy(A)
+        B[:, i] = b
+        x[i] = det(B) / det(A)
+    end
+    return x
 end
 
 # cubic ordinary least squares: income vs house prices
@@ -87,14 +96,20 @@ end
 # function returns the coefficients of the cubic least square fit
 # arguments: income (x), house prices (y)
 function cubic_least_square_fit(x,y)
-    #Construct matrix A of size 650x4
-
+    x = x'
+    y = y'
+    #Construct matrix A of size 650x2
+    A = ones(650, 4)
+    A[:, 4] = x .^3
+    A[:, 3] = x .^2
+    A[:, 2] = x
     #Construct matrix C for least square problem A'*A
-    
+    C = A' * A
     #Construct right hand vector b for the least square problem A'*y
-   
-    #Solve least square problem. Use Cramer's rule
-
+    b = A' * y
+    #Solve least square problem. Use the backslash operator
+    #to solve the system
+    return cramersolve(C, b)
 
 end
 
@@ -104,7 +119,7 @@ end
 function cubic_approximation_error(x,y,c_cubic)
     error = 0;
     for (i,t) in enumerate(x)
-        # calculate the approximation error using c_cubic
+        error += (c_cubic[4] * t^3 + c_cubic[3] * t^2 + c_cubic[2] * t + c_cubic[1] - y[i])^2
     end
     return error;
 end
@@ -135,7 +150,7 @@ println("Linear fit error:", linear_fit_error)
 quadratic_fit_error = quadratic_approximation_error(x_1,y_1,c_quadratic);
 println("Quadratic fit error:", quadratic_fit_error)
 cubic_fit_error = cubic_approximation_error(x_1,y_1,c_cubic);
-println("Cubic fit error:", quadratic_fit_error)
+println("Cubic fit error:", cubic_fit_error)
 
 # inference with quadratic ols
 x_2 = reshape(data_test[:,1], 1, 100);
@@ -153,16 +168,20 @@ function quadratic_ls_prediction(x,y,c_quadratic)
     error = 0;
     for (i,t) in enumerate(x)
         # calculate predictions and store in predictions
+        predictions[i] = c_quadratic[3] * t * t + c_quadratic[2] * t + c_quadratic[1]
         # calculate error 
+        error += (c_quadratic[3] * t * t + c_quadratic[2] * t + c_quadratic[1] - y[i])^2
     end
     return predictions, error;
 end
 
 # plot ground truth (actual data points) and fitted polynom
-plt = scatter(data_test[:,1], data_test[:,2], color=:green, label="Income vs house prices");
+ plt = scatter(data_test[:,1], data_test[:,2], color=:green, label="Income vs house prices");
 t = 0:0.1:15;
-pquadratic(t) = c_quadratic[3] * t * t + c_quadratic[2] * t + c_quadratic[1];
-plot!(plt,t,pquadratic,color=:purple,label="Quadratic least square fit")
+
+
+ pquadratic(t) = c_quadratic[3] * t * t + c_quadratic[2] * t + c_quadratic[1];
+ plot!(plt,t,pquadratic,color=:purple,label="Quadratic least square fit")
 
 # plot predictions on curve
 predictions_test, error_test = quadratic_ls_prediction(x_2,y_2,c_quadratic);

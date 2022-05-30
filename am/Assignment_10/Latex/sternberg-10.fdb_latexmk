@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1653756607 "/home/maxsterni/Documents/Studium/2022s/am/Assignment_10/Latex/sternberg-10.tex" "/home/maxsterni/Documents/Studium/2022s/am/Assignment_10/Latex/sternberg-10.pdf" "sternberg-10" 1653756608
+["pdflatex"] 1653896550 "/home/maxsterni/Documents/Studium/2022s/am/Assignment_10/Latex/sternberg-10.tex" "/home/maxsterni/Documents/Studium/2022s/am/Assignment_10/Latex/sternberg-10.pdf" "sternberg-10" 1653896554
   "/etc/texmf/web2c/texmf.cnf" 1637070127 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/maxsterni/Documents/Studium/2022s/am/Assignment_10/Latex/sternberg-10.aux" 1653756608 8 a94a2480d3289e625eea47cd1b285758 ""
-  "/home/maxsterni/Documents/Studium/2022s/am/Assignment_10/Latex/sternberg-10.tex" 1653756607 2995 ed0386e7addfb310965d377ebd7eae07 ""
+  "/home/maxsterni/Documents/Studium/2022s/am/Assignment_10/Latex/sternberg-10.aux" 1653896550 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/home/maxsterni/Documents/Studium/2022s/am/Assignment_10/Latex/sternberg-10.tex" 1653896554 3289 0234ac0a44d9b441ebfcaaad86de09cc ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -57,11 +57,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1639765340 128028 f533b797fba58d231669ea19e894e23e ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1639765343 4791333 1653bd4cc7e0144678d531b0d271f2d4 ""
-  "sternberg-10.aux" 1653756608 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
-  "sternberg-10.tex" 1653756607 2995 ed0386e7addfb310965d377ebd7eae07 ""
+  "sternberg-10.aux" 1653896550 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
+  "sternberg-10.tex" 1653896554 3289 0234ac0a44d9b441ebfcaaad86de09cc ""
   (generated)
+  "sternberg-10.pdf"
+  "/home/maxsterni/Documents/Studium/2022s/am/Assignment_10/Latex/sternberg-10.pdf"
+  "/home/maxsterni/Documents/Studium/2022s/am/Assignment_10/Latex/sternberg-10.log"
   "sternberg-10.aux"
   "sternberg-10.log"
-  "/home/maxsterni/Documents/Studium/2022s/am/Assignment_10/Latex/sternberg-10.pdf"
-  "sternberg-10.pdf"
-  "/home/maxsterni/Documents/Studium/2022s/am/Assignment_10/Latex/sternberg-10.log"

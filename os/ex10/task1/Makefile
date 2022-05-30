@@ -1,4 +1,4 @@
-CFLAGS = -Wall -g
+CFLAGS = -Wall -g -Werror -Wpedantic
 
 all:  mymalloc.o allocator_tests.o test clean
 

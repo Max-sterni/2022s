@@ -28,6 +28,10 @@ void *my_malloc(size_t size)
 		return NULL;
 	}
 
+	if(head == NULL){
+		return NULL;
+	}
+
 	void *output = (void *)head + sizeof(struct mheader_t);
 	struct mheader_t *tmp = head->next_block;
 	memset(head, 0, sizeof(struct mheader_t));
@@ -38,8 +42,8 @@ void *my_malloc(size_t size)
 
 void my_free(void *ptr)
 {
-	// Convenience 
-	struct mheader_t * freed_header = (struct mheader_t *)(ptr - sizeof(struct mheader_t));
+	// Convenience
+	struct mheader_t *freed_header = (struct mheader_t *)(ptr - sizeof(struct mheader_t));
 	printf("\nFreeing header at %p\n\n", freed_header);
 	if (memory == NULL)
 	{
@@ -50,7 +54,6 @@ void my_free(void *ptr)
 	// When the pointer is before the head
 	if (head == NULL || freed_header < head)
 	{
-		printf("Head is %p > freed %p\n", head, freed_header);
 		(freed_header)->next_block = head;
 		head = ptr - sizeof(struct mheader_t);
 		return;
@@ -86,13 +89,13 @@ void my_allocator_init(size_t size)
 		exit(EXIT_FAILURE);
 	}
 
-	size_t block_amount = size / BLOCK_SIZE;
+	size_t absolute_block_size = BLOCK_SIZE + sizeof(struct mheader_t);
+
+	size_t block_amount = size / absolute_block_size;
 	if (size % BLOCK_SIZE != 0)
 	{
 		block_amount++;
 	}
-	size_t absolute_block_size = BLOCK_SIZE + sizeof(struct mheader_t);
-	printf("Block amount: %ld Total Block Size: %ld\n\n", block_amount, sizeof(struct mheader_t));
 
 	total_size = block_amount * absolute_block_size;
 	// Get the memory pointer
@@ -116,35 +119,12 @@ void my_allocator_init(size_t size)
 	head = memory;
 }
 
-void my_allocator_destroy(){
-	if(memory == NULL){
+void my_allocator_destroy()
+{
+	if (memory == NULL)
+	{
 		fprintf(stderr, "Memory allocator not yet initialized\n");
 		exit(EXIT_FAILURE);
 	}
 	munmap(memory, total_size);
-}
-
-void test()
-{
-	printf("Test: %d Memory: %p Head: %p\n\n", ++tests, memory, head);
-	for (size_t i = 0; i < total_size / sizeof(void **); i++)
-	{
-		printf("%p: %p\n", (void **)memory + i, ((void **)memory)[i]);
-	}
-
-	struct mheader_t *current = head;
-	if (current == NULL)
-	{
-		printf("No free space\n");
-	}
-	int i = 1;
-
-	printf("\n");
-
-	while (current != NULL)
-	{
-		printf("%d Current: %p Next: %p\n", i++, current, current->next_block);
-		current = current->next_block;
-	}
-	printf("\n");
 }

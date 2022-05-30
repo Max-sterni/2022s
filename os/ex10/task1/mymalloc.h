@@ -11,6 +11,4 @@ void my_allocator_init(size_t);
 
 void my_allocator_destroy(void);
 
-void test();
-
 #endif

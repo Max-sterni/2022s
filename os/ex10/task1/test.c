@@ -3,15 +3,19 @@
 
 #include "mymalloc.h"
 
-#define BLOCK_NUMBER 3
+#define BLOCK_NUMBER 2
 
 int main(void){
-	my_allocator_init(64);
+	my_allocator_init(BLOCK_NUMBER * BLOCK_SIZE);
 	test();
-	int * array = my_malloc(2 * sizeof(int));
+	int * block1 = my_malloc(BLOCK_SIZE);
+	int * block2 = my_malloc(BLOCK_SIZE);
 	test();
-	my_free(array);
+	my_free(block1);
 	test();
-	
+	my_free(block2);
+	test();
+	my_allocator_destroy();
+
 	return EXIT_SUCCESS;
 }

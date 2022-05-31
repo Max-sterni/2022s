@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 #include "allocator_tests.h"
+#include "membench.h"
 
 
 int main(void){

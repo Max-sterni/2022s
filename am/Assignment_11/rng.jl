@@ -4,20 +4,42 @@ using Plots
 include("urand.jl")
 
 # TODO: 1a)
-uniform(N::Int)::Vector{Float64} = [0.0]
+uniform(N::Int)::Vector{Float64} = [rand() for _ in 1:N]
 
 # TODO: 1b)
 function mid_square(N::Int, seed::Int=34345669)::Vector{Float64}
-    [0.0]
+    output = Vector{Float64}()
+    current = seed
+    for i in 1:N
+        tmp = digits(current, base=10, pad=8)
+        for j in 3:6
+            current += tmp[j] * 10^(j - 3)
+            println(tmp)
+        end
+        push!(output, current * 0.01)
+        current = current^2
+    end
+    return output
 end
 
 # TODO: 1c)
 function halton(N::Int, base::Int=3)::Vector{Float64}
-    [0.0]
+    output = Vector{Float64}()
+    for i in 1:N
+        fraction = 1.0
+        r = 0.0
+        while i > 0
+            fraction /= base
+            r += fraction * (i % base)
+            i /= base
+        end
+        push!(output, 1.0)
+    end
+    return output
 end
 
 # 1d)
-uniform2D(N::Int)::Vector{Vector{Float64}} = [[0.0], [0.0]]
+uniform2D(N::Int)::Vector{Vector{Float64}} = [uniform(N), uniform(N)]
 
 mid_square2D(N::Int, seed_x::Int=34123169, seed_y::Int=34345669)::Vector{Vector{Float64}} =  [[0.0], [0.0]]
 

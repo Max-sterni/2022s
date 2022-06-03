@@ -1,0 +1,13 @@
+No. The program uses atoi and printf in a shared way as well. So stdlib and stdio are shared as well.
+
+The size of the static library is 50 times bigger then the dynamic one. This is due to having to copy the code for printf and atoi.
+
+With dynamic linking the linker only creates a reference for the function to be run. The operating system then has to look for the function in a different location on the disk. With static linking the code for the externally used function is copied into the binary. 
+
+Usually I would use dynamic linking, because it reduces wasting space for functions inside of binaries, which are used globally on the system anyways.
+
+Static linking could be used in a situation like embedded development, when there is only one small process and you don't need the functionality of the whole library.
+
+Position independent code is which can be run from any position in memory. It is not required to have a specific memory address associated with it and has to reference its own memory in a relative and not an absolute way.
+
+LD_LIBRARY_PATH is used to show the loader where to look for definitions of undefined symbols.

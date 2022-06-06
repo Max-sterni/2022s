@@ -10,14 +10,23 @@ b = 1.0
 # TASKS
 # 2a)
 function power_series(a::Float64, b::Float64)::Float64
-    return 0
+    N = 5
+
+    factor = 1
+    result = 0
+    for i in 0:N
+        iseven(i) ? factor = 1 : factor = -1
+        result += factor * 1/(factorial(i) * (2 * i + 1)) * b^(2 * i + 1)
+        result += factor * 1/(factorial(i) * (2 * i + 1)) * a^(2 * i + 1)
+    end
+    return result
 end
 
 scale(sequence::Vector{Float64}, a::Float64=0.0, b::Float64=1.0)::Vector{Float64} = map(x -> x*(b-a)+a, sequence)
 
 # 2b)
 function mc_integration(a::Float64, b::Float64, N::Int, sequence::Vector{Float64})::Float64
-    return 0
+    return (b - a) * 1/N * sum([f(sequence[i]) for i in 1:N])
 end
 
 # 2c)

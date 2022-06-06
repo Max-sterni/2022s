@@ -16,31 +16,31 @@ end
 # TODO:
 module A
     a = 0
-    b = 0 
+    b = 1 
     f = "sin(x)"
-    pdf(x) = 0
-    cdf(x) = 0 
-    inverse(x) = 0 
+    pdf(x) = sin(x)
+    cdf(x) = -cos(x)
+    inverse(x) = cos(x) 
 end
 
 # TODO:
 module B
     a = 0
-    b = 0 
+    b = 1
     f = "3*x^2"
-    pdf(x) = 0
-    cdf(x) = 0
-    inverse(x) = 0 
+    pdf(x) = 3 * x^2
+    cdf(x) = x^3
+    inverse(x) = -(x^3) 
 end
 
 # TODO:
 module C
     a = 0
-    b = 0 
+    b = 1 
     f = "exp(x)"
-    pdf(x) = 0 
-    cdf(x) = 0
-    inverse(x) = 0
+    pdf(x) = exp(x) 
+    cdf(x) = exp(x)
+    inverse(x) = -exp(x)
 end
 
 # plot helper

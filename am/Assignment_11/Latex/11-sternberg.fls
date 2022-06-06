@@ -1,10 +1,10 @@
-PWD /home/maxsterni/Documents/Studium/2022s/am/Assignment_11/Latex
+PWD /home/maxsterni/Documents/Git/2022s/am/Assignment_11/Latex
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/maxsterni/Documents/Studium/2022s/am/Assignment_11/Latex/11-sternberg.tex
-OUTPUT /home/maxsterni/Documents/Studium/2022s/am/Assignment_11/Latex/11-sternberg.log
+INPUT /home/maxsterni/Documents/Git/2022s/am/Assignment_11/Latex/11-sternberg.tex
+OUTPUT /home/maxsterni/Documents/Git/2022s/am/Assignment_11/Latex/11-sternberg.log
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/book.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/book.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo
@@ -51,9 +51,9 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
 INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
-INPUT /home/maxsterni/Documents/Studium/2022s/am/Assignment_11/Latex/11-sternberg.aux
-INPUT /home/maxsterni/Documents/Studium/2022s/am/Assignment_11/Latex/11-sternberg.aux
-OUTPUT /home/maxsterni/Documents/Studium/2022s/am/Assignment_11/Latex/11-sternberg.aux
+INPUT /home/maxsterni/Documents/Git/2022s/am/Assignment_11/Latex/11-sternberg.aux
+INPUT /home/maxsterni/Documents/Git/2022s/am/Assignment_11/Latex/11-sternberg.aux
+OUTPUT /home/maxsterni/Documents/Git/2022s/am/Assignment_11/Latex/11-sternberg.aux
 INPUT /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
@@ -80,9 +80,9 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
-OUTPUT /home/maxsterni/Documents/Studium/2022s/am/Assignment_11/Latex/11-sternberg.pdf
+OUTPUT /home/maxsterni/Documents/Git/2022s/am/Assignment_11/Latex/11-sternberg.pdf
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
-INPUT /home/maxsterni/Documents/Studium/2022s/am/Assignment_11/Latex/11-sternberg.aux
+INPUT /home/maxsterni/Documents/Git/2022s/am/Assignment_11/Latex/11-sternberg.aux
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
@@ -91,4 +91,5 @@ INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb

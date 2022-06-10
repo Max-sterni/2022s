@@ -13,3 +13,7 @@ half.so: half.c
 
 iterate.so: iterate.c
 	gcc $(CFLAGS) -shared -o iterate.so iterate.c
+
+
+clean:
+	rm *.so map_number

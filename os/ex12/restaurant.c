@@ -24,6 +24,12 @@ struct cook_args_t {
   myqueue * queue;
 };
 
+struct order_t{
+  int id;
+};
+
+
+
 int main(int argc, char **argv) {
   if (argc != 4) {
     fprintf(stderr,
@@ -95,7 +101,7 @@ void *guest_function(void *ptr) {
   struct guest_args_t *args = (struct guest_args_t *)ptr;
 
   // Place order
- sem_post(args->orders);
+  sem_post(args->orders);
   return NULL;
 }
 

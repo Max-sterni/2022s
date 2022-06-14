@@ -1,0 +1,10 @@
+at/ac/uibk/pm/gXX/zidUsername/midterm2/e01/SortedTriple.java
+at/ac/uibk/pm/gXX/zidUsername/midterm2/e01/SortedTripleApplication.java
+at/ac/uibk/pm/gXX/zidUsername/midterm2/e02/Author.java
+at/ac/uibk/pm/gXX/zidUsername/midterm2/e02/Book.java
+at/ac/uibk/pm/gXX/zidUsername/midterm2/e02/Library.java
+at/ac/uibk/pm/gXX/zidUsername/midterm2/e02/LibraryApplication.java
+at/ac/uibk/pm/gXX/zidUsername/midterm2/e03/Exercise3Application.java
+at/ac/uibk/pm/gXX/zidUsername/midterm2/e03/Exercise3Interface.java
+at/ac/uibk/pm/gXX/zidUsername/midterm2/e03/Exercise3Imperative.java
+at/ac/uibk/pm/gXX/zidUsername/midterm2/e03/Exercise3Functional.java

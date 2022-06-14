@@ -6,29 +6,29 @@
 #include <pthread.h>
 #include <semaphore.h>
 #include "myqueue.h"
+#include <stdatomic.h>
 
 void *guest_function(void *ptr);
 void *cook_function(void *ptr);
 
 struct guest_args_t {
   int id;
-  sem_t * orders;
-  pthread_mutex_t * counter;
-  myqueue * queue;
 };
 
 struct cook_args_t {
   int id;
-  sem_t * orders;
-  pthread_mutex_t * counter;
-  myqueue * queue;
 };
 
 struct order_t{
   int id;
 };
 
+pthread_cond_t new_order;
+sem_t orders;
+pthread_mutex_t counter;
+myqueue order_q;
 
+int orders_amount;
 
 int main(int argc, char **argv) {
   if (argc != 4) {
@@ -50,13 +50,10 @@ int main(int argc, char **argv) {
     return EXIT_FAILURE;
   }
 
-  pthread_mutex_t * counter = malloc(sizeof(pthread_mutex_t));
-  sem_t * orders = malloc(sizeof(sem_t));
-  myqueue * order_q = malloc(sizeof(myqueue));
 
-  pthread_mutex_init(counter, NULL);
-  sem_init(orders, 0, 0);
-  myqueue_init(order_q);
+  pthread_mutex_init(&counter, NULL);
+  sem_init(&orders, 0, 0);
+  myqueue_init(&order_q);
 
   pthread_t guests[guests_amount];
   pthread_t cooks[cooks_amount];
@@ -67,10 +64,8 @@ int main(int argc, char **argv) {
   for (int i = 0; i < guests_amount; i++) {
     // Create args
     guest_args = malloc(sizeof(struct guest_args_t));
-    guest_args->id = i + 1;
-    guest_args->counter = counter;
-    guest_args->orders = orders;
-
+    guest_args->id = i;
+    
     // Create thread
     if (pthread_create(guests + i, NULL, guest_function, guest_args)) {
       perror("thread creation error");
@@ -82,9 +77,7 @@ int main(int argc, char **argv) {
   for (int i = 0; i < cooks_amount; i++) {
     // Create args
     cook_args = malloc(sizeof(struct cook_args_t));
-    cook_args->id = i + 1;
-    cook_args->counter = counter;
-    cook_args->orders = orders;
+    cook_args->id = i;
 
     // Create thread
     if (pthread_create(cooks + i, NULL, cook_function, cook_args)) {
@@ -99,9 +92,25 @@ int main(int argc, char **argv) {
 void *guest_function(void *ptr) {
   // Convenience
   struct guest_args_t *args = (struct guest_args_t *)ptr;
+  struct order_t * order = malloc(sizeof(struct order_t));
+  write(0,"T\n", 2);
 
   // Place order
-  sem_post(args->orders);
+  // pthread_mutex_lock(&counter);
+
+  // order->id = orders_amount;
+
+  // myqueue_push(&order_q, order);
+  // printf("Guest %d has made a meal order %d\n", args->id, order->id);
+
+  // orders_amount++;
+  
+  // pthread_mutex_unlock(&counter);
+
+  // sem_post(&orders);
+  
+  free(order);
+  free(args);
   return NULL;
 }
 
@@ -109,6 +118,18 @@ void *cook_function(void *ptr) {
   // Convenience
   struct guest_args_t *args = (struct guest_args_t *)ptr;
 
-  printf("cook%d\n", args->id);
+  printf("Cook %d created", args->id);
+
+  // sem_wait(&orders);
+  // // Receive order
+  // pthread_mutex_lock(&counter);
+
+  // struct order_t * order =  myqueue_pop(&order_q);
+
+  // printf("Cook %d has received a meal order %d\n", args->id, order->id);
+  
+  // pthread_mutex_unlock(&counter);
+
+  free(args);
   return NULL;
 }

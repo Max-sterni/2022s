@@ -7,7 +7,7 @@
 #include <sys/queue.h>
 
 struct myqueue_entry {
-	int value;
+	void * value;
 	STAILQ_ENTRY(myqueue_entry) entries;
 };
 
@@ -23,16 +23,16 @@ static bool myqueue_is_empty(myqueue* q) {
 	return STAILQ_EMPTY(q);
 }
 
-static void myqueue_push(myqueue* q, int value) {
+static void myqueue_push(myqueue* q, void * value) {
 	struct myqueue_entry* entry = malloc(sizeof(struct myqueue_entry));
 	entry->value = value;
 	STAILQ_INSERT_TAIL(q, entry, entries);
 }
 
-static int myqueue_pop(myqueue* q) {
+static void * myqueue_pop(myqueue* q) {
 	assert(!myqueue_is_empty(q));
 	struct myqueue_entry* entry = STAILQ_FIRST(q);
-	const int value = entry->value;
+	void * value = entry->value;
 	STAILQ_REMOVE_HEAD(q, entries);
 	free(entry);
 	return value;

@@ -1,0 +1,4 @@
+1. Compiled and works perfectly because the integer is automatically used in the type.
+2. Compiles but list is of type object. It will not be practical because the type has to be casted.
+3. Compiles but the abstraction is not given. Therefore you will not be able to change implementation easily
+4. Does not compile, there is no extends specification. 

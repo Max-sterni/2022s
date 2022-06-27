@@ -6,37 +6,38 @@ import java.util.List;
 
 public class ListSet<T> {
 
-    private List<T> elements = null;
+    private List<T> elements;
 
-    private int s = 0;
+    private int size = 0;
 
     public ListSet() {
-        elements = new ArrayList<>();
+        this.elements = new ArrayList<>();
     }
 
-    private ListSet(List<T> elements) {
+    public ListSet(List<T> elements) {
         this.elements = elements;
     }
 
-    public void add(Object element) {
+    public void add(T element) {
         if (!contains(element)) {
-            elements.add((T) element);
-            s++;
+            elements.add(element);
+            size++;
         }
     }
 
     public void addAll(Collection<T> elements) {
-        elements.addAll(elements);
-        s += this.elements.size();
+        for (T element : elements) {
+            add(element);
+        }
     }
 
     public boolean isEmpty() {
-        return elements == null;
+        return elements.isEmpty();
     }
 
-    public boolean contains(Object element) {
+    public boolean contains(T element) {
         for (T t : elements) {
-            if (element == t) {
+            if (t.equals(element)) {
                 return true;
             }
         }
@@ -57,11 +58,16 @@ public class ListSet<T> {
     }
 
     public void removeAll(Collection<T> toRemove) {
-        elements.clear();
+        for (T t : toRemove) {
+            if(contains(t)){
+                elements.remove(t);
+                size--;
+            }
+        }
     }
 
     public int size() {
-        return s;
+        return size;
     }
 
 
